@@ -1,0 +1,117 @@
+// ============================================================================
+// 全局基础样式与工具类
+// 只在 App.vue 中引入一次，作用于全站。
+// ============================================================================
+
+page,
+uni-page-body {
+  font-family: $ff-sans;
+  font-size: $fs-body;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+scroll-view,
+button,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+// ---------------------------------------------------------------------------
+// 版面容器 —— 统一的横向留白
+// ---------------------------------------------------------------------------
+.jy-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--c-bg);
+}
+
+.jy-pad {
+  padding-left: $sp-4;
+  padding-right: $sp-4;
+}
+
+.jy-pad-lg {
+  padding-top: $sp-6;
+  padding-bottom: $sp-6;
+}
+
+/// 底部安全区（iPhone 全面屏）
+.jy-safe-bottom {
+  padding-bottom: calc(#{$sp-4} + constant(safe-area-inset-bottom));
+  padding-bottom: calc(#{$sp-4} + env(safe-area-inset-bottom));
+}
+
+/// 为固定底栏预留的占位高度
+.jy-bottom-hold {
+  height: calc(120rpx + constant(safe-area-inset-bottom));
+  height: calc(120rpx + env(safe-area-inset-bottom));
+}
+
+// ---------------------------------------------------------------------------
+// 细线 —— 中式版面不用粗分割，统一 1rpx
+// ---------------------------------------------------------------------------
+.jy-hairline-t {
+  border-top: $hairline solid var(--c-line);
+}
+
+.jy-hairline-b {
+  border-bottom: $hairline solid var(--c-line);
+}
+
+// ---------------------------------------------------------------------------
+// 文字工具类
+// ---------------------------------------------------------------------------
+.t-serif {
+  font-family: $ff-serif;
+}
+
+.t-title {
+  font-family: $ff-serif;
+  font-size: $fs-h2;
+  font-weight: 500;
+  color: var(--c-ink);
+  letter-spacing: 2rpx;
+}
+
+.t-sub {
+  font-size: $fs-sm;
+  color: var(--c-ink-2);
+}
+
+.t-weak {
+  font-size: $fs-xs;
+  color: var(--c-ink-3);
+}
+
+.t-accent {
+  color: var(--c-accent);
+}
+
+.t-gold {
+  color: var(--c-gold);
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-ellipsis {
+  @include jy-ellipsis(1);
+}
+
+.t-ellipsis-2 {
+  @include jy-ellipsis(2);
+}
+
+// ---------------------------------------------------------------------------
+// 滚动容器 —— 页面内需要独立滚动时使用
+// ---------------------------------------------------------------------------
+.jy-scroll {
+  flex: 1;
+  overflow: hidden;
+}

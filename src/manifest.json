@@ -1,0 +1,28 @@
+{
+  "name": "金刚之源",
+  "appid": "",
+  "description": "金刚之源一体化数字平台｜微信小程序商城 + 开石探索馆 + 私人定制 + 雕刻监工 + 一物一码溯源",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "vueVersion": "3",
+  "mp-weixin": {
+    "appid": "",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true,
+      "postcss": true
+    },
+    "usingComponents": true,
+    "darkmode": false,
+    "lazyCodeLoading": "requiredComponents"
+  },
+  "h5": {
+    "title": "金刚之源",
+    "router": {
+      "mode": "hash",
+      "base": "./"
+    }
+  }
+}

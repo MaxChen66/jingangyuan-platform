@@ -1,0 +1,53 @@
+// ============================================================================
+// 主题：幽玄矿物（开石探索馆独立视觉体系）
+// 适用：开石馆首页 / 矿区详情 / 购买 / 开石 / 结果 / 石头柜 / 藏品
+// 气质：玄墨为底、月白为字、鎏金为高光，矿物结晶色制造幽微的辉光。
+//
+// 对应实施文档第 17 节「开石独立视觉、独立专区，避免成为商城普通商品列表，
+// 防止低价盲盒稀释高端品牌」的要求。
+//
+// 用法：页面根节点加 class="theme-ink"。
+// ============================================================================
+
+.theme-ink {
+  // 底与面
+  --c-bg: #{$ink-bg}; // 玄墨
+  --c-bg-deep: #{$ink-bg-deep}; // 沉降区
+  --c-surface: #{$ink-surface}; // 卡片面
+  --c-surface-2: #{mix($ink-surface, $ink-bg, 60%)};
+
+  // 字
+  --c-ink: #{$ink-ink}; // 月白
+  --c-ink-2: #{$ink-ink-2};
+  --c-ink-3: #{$ink-ink-3};
+  --c-ink-inverse: #{$ink-bg};
+
+  // 线
+  --c-line: #{$ink-line};
+  --c-line-strong: #{mix($ink-accent, $ink-line, 40%)};
+
+  // 点睛色
+  --c-accent: #{$ink-accent}; // 鎏金
+  --c-accent-soft: #{rgba($ink-accent, 0.12)};
+  --c-gold: #{$ink-accent};
+  --c-jade: #{$ink-glow-jade};
+
+  // 矿物结晶色 —— 仅开石体系拥有
+  --c-glow-jade: #{$ink-glow-jade};
+  --c-glow-amethyst: #{$ink-glow-amethyst};
+  --c-glow-amber: #{$ink-glow-amber};
+
+  // 语义色
+  --c-danger: #{$ink-accent-red};
+  --c-success: #{$ink-glow-jade};
+
+  // 阴影 —— 深底上以辉光代替投影
+  --shadow-card: 0 2rpx 16rpx rgba(0, 0, 0, 0.5);
+  --shadow-float: 0 8rpx 40rpx rgba(0, 0, 0, 0.7);
+
+  // 遮罩
+  --c-mask: rgba(0, 0, 0, 0.7);
+
+  background: var(--c-bg);
+  color: var(--c-ink);
+}

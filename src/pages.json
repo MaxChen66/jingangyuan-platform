@@ -1,0 +1,194 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "金刚之源"
+      }
+    },
+    {
+      "path": "pagesMall/home/index",
+      "style": {
+        "navigationBarTitleText": "精品商城"
+      }
+    },
+    {
+      "path": "pagesExplore/home/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "开石探索馆"
+      }
+    },
+    {
+      "path": "pagesWorkshop/index/index",
+      "style": {
+        "navigationBarTitleText": "雕刻工坊"
+      }
+    },
+    {
+      "path": "pagesUser/index/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pagesMall/list/index",
+      "style": {
+        "navigationBarTitleText": "寻石"
+      }
+    },
+    {
+      "path": "pagesMall/detail/index",
+      "style": {
+        "navigationBarTitleText": "作品详情"
+      }
+    },
+    {
+      "path": "pagesMall/cart/index",
+      "style": {
+        "navigationBarTitleText": "购物车"
+      }
+    },
+    {
+      "path": "pagesMall/checkout/index",
+      "style": {
+        "navigationBarTitleText": "确认订单"
+      }
+    },
+    {
+      "path": "pagesMall/order/list",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pagesMall/order/detail",
+      "style": {
+        "navigationBarTitleText": "订单详情"
+      }
+    },
+    {
+      "path": "pagesCustom/index/index",
+      "style": {
+        "navigationBarTitleText": "私人定制"
+      }
+    },
+    {
+      "path": "pagesExplore/series/index",
+      "style": {
+        "navigationBarTitleText": "矿区详情",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/purchase/index",
+      "style": {
+        "navigationBarTitleText": "确认开石",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/draw/index",
+      "style": {
+        "navigationBarTitleText": "开石",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/result/index",
+      "style": {
+        "navigationBarTitleText": "开石结果",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/collection/index",
+      "style": {
+        "navigationBarTitleText": "我的石头柜",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/collection/detail",
+      "style": {
+        "navigationBarTitleText": "藏品详情",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/bestiary/index",
+      "style": {
+        "navigationBarTitleText": "矿物图鉴",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    },
+    {
+      "path": "pagesExplore/records/index",
+      "style": {
+        "navigationBarTitleText": "探索记录",
+        "navigationBarBackgroundColor": "#14110E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#14110E"
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#8A8378",
+    "selectedColor": "#9E2B25",
+    "backgroundColor": "#FFFDF8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pagesMall/home/index",
+        "text": "商城",
+        "iconPath": "static/tabbar/shop.png",
+        "selectedIconPath": "static/tabbar/shop-active.png"
+      },
+      {
+        "pagePath": "pagesExplore/home/index",
+        "text": "开石",
+        "iconPath": "static/tabbar/stone.png",
+        "selectedIconPath": "static/tabbar/stone-active.png"
+      },
+      {
+        "pagePath": "pagesWorkshop/index/index",
+        "text": "工坊",
+        "iconPath": "static/tabbar/workshop.png",
+        "selectedIconPath": "static/tabbar/workshop-active.png"
+      },
+      {
+        "pagePath": "pagesUser/index/index",
+        "text": "我的",
+        "iconPath": "static/tabbar/user.png",
+        "selectedIconPath": "static/tabbar/user-active.png"
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "金刚之源",
+    "navigationBarBackgroundColor": "#F7F3EA",
+    "backgroundColor": "#F7F3EA"
+  }
+}

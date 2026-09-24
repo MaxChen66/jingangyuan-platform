@@ -1,0 +1,237 @@
+// ============================================================================
+// 金刚之源 · 全局 SCSS 变量与中式美学 Mixin
+// ----------------------------------------------------------------------------
+// uni-app 会把本文件注入到每一个 <style lang="scss"> 之前，因此这里
+// 只允许出现「定义」（变量 / mixin / function），绝不能产生任何 CSS 输出，
+// 否则每个组件都会重复一份样式。
+//
+// 运行时可切换的配色见 styles/index.scss 中的 CSS 自定义属性。
+// 本文件里的色值用于 mixin 内部计算与编译期常量。
+// ============================================================================
+
+// ---------------------------------------------------------------------------
+// 一、色板 —— 宋式雅致（商城 / 定制 / 工坊 / 我的 / 溯源）
+// ---------------------------------------------------------------------------
+$paper-bg: #f7f3ea; // 宣纸
+$paper-bg-deep: #efe9dc; // 宣纸（沉降）
+$paper-surface: #fffdf8; // 卡片面
+$paper-ink: #1c1b19; // 墨
+$paper-ink-2: #4a4640; // 墨（次）
+$paper-ink-3: #8a8378; // 墨（淡）
+$paper-line: #ddd5c6; // 细线
+$paper-accent: #9e2b25; // 朱砂
+$paper-gold: #b08d4f; // 旧金
+$paper-jade: #6b7a5e; // 黛青
+
+// ---------------------------------------------------------------------------
+// 二、色板 —— 幽玄矿物（开石探索馆独立视觉体系）
+// ---------------------------------------------------------------------------
+$ink-bg: #14110e; // 玄墨
+$ink-bg-deep: #0c0a08; // 玄墨（沉降）
+$ink-surface: #1e1a15; // 卡片面
+$ink-ink: #ede6d8; // 月白
+$ink-ink-2: #b5ac9b;
+$ink-ink-3: #7a7365;
+$ink-line: #332c22;
+$ink-accent: #c8a15a; // 鎏金
+$ink-accent-red: #9e2b25; // 朱砂（点缀）
+$ink-glow-jade: #3e6b63; // 矿物 · 青绿
+$ink-glow-amethyst: #6b4e7a; // 矿物 · 紫晶
+$ink-glow-amber: #a8703a; // 矿物 · 琥珀
+
+// ---------------------------------------------------------------------------
+// 三、字体 —— 不引入 webfont，走系统字体回退链
+// 标题用宋体建立中式气质，正文用无衬线保证小字号可读性。
+// ---------------------------------------------------------------------------
+$ff-serif: 'Songti SC', 'STSong', 'Source Han Serif SC', 'Noto Serif SC', 'SimSun', serif;
+$ff-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+  'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// ---------------------------------------------------------------------------
+// 四、间距阶梯（rpx）—— 中式留白尺度偏大
+// ---------------------------------------------------------------------------
+$sp-1: 8rpx;
+$sp-2: 16rpx;
+$sp-3: 24rpx;
+$sp-4: 32rpx;
+$sp-5: 48rpx;
+$sp-6: 64rpx;
+$sp-7: 96rpx;
+
+// ---------------------------------------------------------------------------
+// 五、字号阶梯（rpx）
+// ---------------------------------------------------------------------------
+$fs-display: 64rpx; // 品牌大标题
+$fs-h1: 48rpx;
+$fs-h2: 40rpx;
+$fs-h3: 34rpx;
+$fs-body: 28rpx;
+$fs-sm: 26rpx;
+$fs-xs: 22rpx;
+$fs-xxs: 20rpx;
+
+// ---------------------------------------------------------------------------
+// 六、圆角 / 描边 / 动效
+// ---------------------------------------------------------------------------
+$r-xs: 4rpx;
+$r-sm: 8rpx;
+$r-md: 16rpx;
+$r-lg: 24rpx;
+$r-pill: 999rpx;
+
+$hairline: 1rpx;
+
+$ease-cn: cubic-bezier(0.25, 0.8, 0.35, 1); // 缓入缓出，用于中式动效
+$dur-fast: 180ms;
+$dur-base: 320ms;
+$dur-slow: 600ms;
+
+// ===========================================================================
+// Mixin
+// ===========================================================================
+
+/// 朱砂印章 —— 方形实底 + 圆角 + 居中字，中式的「钤印」感
+/// @param {Number} $size  边长
+/// @param {Color}  $bg    印底色（默认朱砂）
+/// @param {Color}  $fg    字色（默认宣纸）
+@mixin jy-seal($size: 64rpx, $bg: $paper-accent, $fg: $paper-bg) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $size;
+  height: $size;
+  border-radius: $r-xs;
+  background: $bg;
+  color: $fg;
+  font-family: $ff-serif;
+  font-size: $size * 0.5;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/// 细线描边卡 —— 以 1rpx 细线代替重投影，是宋式克制的关键
+/// @param {Color} $bg    卡面底色
+/// @param {Color} $line  描边色
+@mixin jy-hairline-card($bg: $paper-surface, $line: $paper-line) {
+  background: $bg;
+  border: $hairline solid $line;
+  border-radius: $r-md;
+}
+
+/// 回纹角标 —— 用伪元素在左上 / 右下画直角细线，含蓄的中式边框语言
+/// @param {Color} $color 角标颜色
+/// @param {Number} $len  角标臂长
+@mixin jy-corner-mark($color: $paper-gold, $len: 20rpx) {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $len;
+    height: $len;
+    border-color: $color;
+    border-style: solid;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-width: $hairline 0 0 $hairline;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    border-width: 0 $hairline $hairline 0;
+  }
+}
+
+/// 中式分隔线 —— 细线中段缀一枚菱形节点
+/// @param {Color} $color 线色
+@mixin jy-cn-divider($color: $paper-line) {
+  position: relative;
+  height: $hairline;
+  background: $color;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10rpx;
+    height: 10rpx;
+    background: $color;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+/// 笔锋下划线 —— 由粗到细渐隐，模拟毛笔收锋
+@mixin jy-brush-underline($color: $paper-accent) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8rpx;
+    width: 100%;
+    height: 3rpx;
+    background: linear-gradient(90deg, $color 0%, rgba($color, 0.35) 60%, rgba($color, 0) 100%);
+  }
+}
+
+/// 竖排文字 —— 用 flex 纵向逐字堆叠实现。
+/// 不用 writing-mode：微信小程序对其支持不稳定，flex 方案各端一致。
+@mixin jy-vertical-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.25;
+}
+
+/// 多行省略
+/// @param {Number} $lines 行数
+@mixin jy-ellipsis($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+/// 按钮重置 —— 小程序 button 自带边框与背景，需清掉
+@mixin jy-btn-reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  line-height: normal;
+  font-size: inherit;
+  color: inherit;
+
+  &::after {
+    border: none;
+  }
+}
+
+/// 矿物结晶纹理 —— 多层径向渐变叠出幽微的矿石光泽（开石体系专用）
+/// @param {Color} $a 主结晶色
+/// @param {Color} $b 次结晶色
+@mixin jy-stone-grain($a: $ink-glow-jade, $b: $ink-glow-amethyst) {
+  background-image: radial-gradient(circle at 22% 28%, rgba($a, 0.5) 0%, rgba($a, 0) 42%),
+    radial-gradient(circle at 78% 18%, rgba($b, 0.42) 0%, rgba($b, 0) 38%),
+    radial-gradient(circle at 62% 76%, rgba($a, 0.36) 0%, rgba($a, 0) 46%),
+    radial-gradient(circle at 34% 68%, rgba($b, 0.28) 0%, rgba($b, 0) 34%);
+}
+
+/// 鎏金描边 —— 金色渐变细边框，用于开石体系的高光边缘
+@mixin jy-gold-edge($color: $ink-accent) {
+  border: $hairline solid rgba($color, 0.45);
+  box-shadow: inset 0 0 24rpx rgba($color, 0.08);
+}

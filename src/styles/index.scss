@@ -1,0 +1,12 @@
+// ============================================================================
+// 金刚之源 · 样式入口
+// 在 App.vue 中引入一次即可全站生效。
+//
+// 说明：此处使用 @import 而非 @use。因为 uni-app 会把 uni.scss 作为前导内容
+// 注入到每个 <style lang="scss"> 之前，导致 @use 不处于文件首位而报
+// "@use rules must be written before any other rules"。@import 无此顺序约束。
+// ============================================================================
+
+@import './theme-paper';
+@import './theme-ink';
+@import './base';

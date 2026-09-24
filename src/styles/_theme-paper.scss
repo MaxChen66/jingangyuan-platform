@@ -1,0 +1,49 @@
+// ============================================================================
+// 主题：宋式雅致（默认体系）
+// 适用：首页 / 商城 / 定制 / 工坊 / 溯源 / 我的
+// 气质：宣纸为底、墨为字、朱砂为点睛，以细线与大留白构建克制的秩序感。
+//
+// 主题以 CSS 自定义属性下发，开石体系只需在根节点加 .theme-ink 即可整体换肤，
+// 无需为深色体系复制任何一份组件样式。
+// 小程序不支持 :root，故以 page 承载默认值；uni-page-body 用于 H5 预览。
+// ============================================================================
+
+page,
+.theme-paper,
+uni-page-body {
+  // 底与面
+  --c-bg: #{$paper-bg}; // 宣纸
+  --c-bg-deep: #{$paper-bg-deep}; // 沉降区（列表背景、分组底）
+  --c-surface: #{$paper-surface}; // 卡片面
+  --c-surface-2: #{$paper-bg-deep}; // 次级面
+
+  // 字
+  --c-ink: #{$paper-ink}; // 主字 · 墨
+  --c-ink-2: #{$paper-ink-2}; // 次字
+  --c-ink-3: #{$paper-ink-3}; // 辅助字 / 占位
+  --c-ink-inverse: #{$paper-bg}; // 深底上的字
+
+  // 线
+  --c-line: #{$paper-line}; // 常规细线
+  --c-line-strong: #{mix($paper-ink, $paper-line, 30%)}; // 强调细线
+
+  // 点睛色
+  --c-accent: #{$paper-accent}; // 朱砂
+  --c-accent-soft: #{rgba($paper-accent, 0.08)}; // 朱砂浅底
+  --c-gold: #{$paper-gold}; // 旧金
+  --c-jade: #{$paper-jade}; // 黛青
+
+  // 语义色
+  --c-danger: #{$paper-accent};
+  --c-success: #{$paper-jade};
+
+  // 阴影 —— 中式克制，几乎不用重投影
+  --shadow-card: 0 2rpx 12rpx rgba(28, 27, 25, 0.04);
+  --shadow-float: 0 8rpx 32rpx rgba(28, 27, 25, 0.1);
+
+  // 遮罩
+  --c-mask: rgba(28, 27, 25, 0.45);
+
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
